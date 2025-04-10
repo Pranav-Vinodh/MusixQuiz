@@ -1,4 +1,4 @@
-# Music Quiz App 🎵
+# MusixQuiz 🎵
 
 A fun and interactive music quiz application built with React and Vite. Test your music knowledge by listening to songs and answering questions about them!
 
