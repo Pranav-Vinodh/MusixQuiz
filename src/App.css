@@ -1,0 +1,289 @@
+:root {
+  --spotify-green: #1db954;
+  --spotify-black: #191414;
+  --glow-color: rgba(29, 185, 84, 0.2);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  background-color: var(--spotify-black);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.quiz-container {
+  background: rgba(25, 20, 20, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  padding: 3rem;
+  max-width: 1200px;
+  width: 95%;
+  min-height: 600px;
+  box-shadow: 0 0 20px var(--glow-color);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 2rem auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.question-section {
+  margin-bottom: 2rem;
+}
+
+.question-count {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.question-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.answer-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.answer-button {
+  padding: 1rem;
+  font-size: 1.1rem;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.answer-button:hover {
+  background-color: #e0e0e0;
+}
+
+.answer-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.answer-button.correct {
+  background-color: #4caf50;
+  color: white;
+}
+
+.answer-button.incorrect {
+  background-color: #f44336;
+  color: white;
+}
+
+.score-tracker {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: rgba(25, 20, 20, 0.8);
+  backdrop-filter: blur(10px);
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 10px var(--glow-color);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 40;
+  margin-left: 0;
+}
+
+.audio-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.play-button {
+  background: var(--spotify-green);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px var(--glow-color);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1rem auto;
+}
+
+.play-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px var(--glow-color), 0 0 30px var(--spotify-green);
+}
+
+.play-button:disabled {
+  background: #535353;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.options {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-top: 2rem;
+  max-width: 800px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.option-button {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1.2rem;
+  border-radius: 0.5rem;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
+}
+
+.option-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: var(--spotify-green);
+  box-shadow: 0 0 10px var(--glow-color), 0 0 20px var(--spotify-green);
+}
+
+.error-message {
+  color: #ff4444;
+  text-align: center;
+  padding: 1rem;
+  margin: 1rem 0;
+  background: rgba(255, 0, 0, 0.1);
+  border: 1px solid rgba(255, 0, 0, 0.2);
+  border-radius: 0.5rem;
+}
+
+.restart-button {
+  background: var(--spotify-green);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px var(--glow-color);
+  margin-top: 2rem;
+}
+
+.restart-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px var(--glow-color), 0 0 30px var(--spotify-green);
+}
+
+/* Question styling */
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: white;
+  text-align: center;
+}
+
+p {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* Score section styling */
+.score-section {
+  text-align: center;
+  padding: 2rem;
+  width: 100%;
+}
+
+.score-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--spotify-green);
+}
+
+.score-section p {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  color: white;
+}
+
+.score-section button {
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.score-section button:hover {
+  background-color: #1976d2;
+}
+
+/* Landing page styling */
+.landing-page {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.landing-page h1 {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  color: white;
+}
+
+.landing-page p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.landing-page button {
+  background: var(--spotify-green);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px var(--glow-color);
+}
+
+.landing-page button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px var(--glow-color), 0 0 30px var(--spotify-green);
+}
