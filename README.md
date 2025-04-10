@@ -28,8 +28,8 @@ A fun and interactive music quiz application built with React and Vite. Test you
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/music-quiz.git
-cd music-quiz
+git clone https://github.com/Pranav-Vinodh/MusixQuiz.git
+cd MusixQuiz
 ```
 
 2. Install dependencies:
@@ -58,7 +58,7 @@ npm run dev
 ## Project Structure 📁
 
 ```
-music-quiz/
+MusixQuiz/
 ├── src/
 │   ├── components/
 │   │   └── Quiz.jsx
